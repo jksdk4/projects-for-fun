@@ -40,9 +40,10 @@ resetAudio = (audioFile) => {
 
 // Write named functions that change the color of the keys below
 let keyPlay = (key) => {
-  const audio = keysObj[key.target.id];
+  const keyTarget = key.target;
+  const audio = keysObj[keyTarget.id];
 
-  key.target.style.backgroundColor = 'lightblue';
+  keyTarget.style.backgroundColor = 'lightblue';
 
   resetAudio(audio);
   audio.play();
@@ -50,9 +51,10 @@ let keyPlay = (key) => {
 
 let keyReturn = (key) => {
   const isSustained = document.querySelector("input[name='sustain']:checked");
-  const audio = keysObj[key.target.id];
+  const keyTarget = key.target;
+  const audio = keysObj[keyTarget.id];
 
-  key.target.style.backgroundColor = '';
+  keyTarget.style.backgroundColor = '';
 
   if (!isSustained) {
     resetAudio(audio);
