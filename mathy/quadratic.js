@@ -1,7 +1,7 @@
-function checker(a, b, c){
+function checker(a, b, c) {
     if (a === 0) {
         const notParabola = "This is not a parabola.";
-        if ([b, c].some(value => value === null || isNaN(parseInt(value)))){
+        if ([b, c].some(value => isNaN(parseInt(value)))) {
             if (b == Infinity || b == -Infinity) {
                 return `${notParabola} This is a vertical line, aka one with an undefined slope.`;
             }
@@ -11,8 +11,8 @@ function checker(a, b, c){
             return `${notParabola} This is a line with zero slope and an ordinate of ${c}.`
         }
         return `${notParabola} This is a line with a slope of ${b} and an ordinate of ${c}. y = ${b}x + ${c}.`;
-    } else if ([a, b, c].some(value => value === null || isNaN(parseInt(value)))){
-        return "Your input can't be computed. Either your highest degree divides by zero, or you are using a non-numeric value somewhere.";
+    } else if ([a, b, c].some(value => isNaN(parseInt(value)))) {
+        return "Your input can't be computed. Either your highest degree coefficient is infinity, or you have other invalid input.";
     } else {
         a = parseFloat(a);
         b = parseFloat(b);
@@ -28,7 +28,7 @@ function quadraticInfo(secondDegree, firstDegree, constant) {
     if (typeof checked === 'string') {
         console.log(checked);
         return;
-    } else [a, b, c] = checked;
+    } else[a, b, c] = checked;
 
     // Calculate the discriminant
     var discriminant = b * b - 4 * a * c;
@@ -104,9 +104,9 @@ function quadraticInfo(secondDegree, firstDegree, constant) {
 }
 
 // Example usage:
-var a = -3 // coefficient of x^2
-var b = 9; // coefficient of x
-var c = 0; // constant term
+var a = -1 // coefficient of x^2
+var b = 0; // coefficient of x
+var c = -1; // constant term
 
 var result = quadraticInfo(a, b, c);
 if (typeof result === 'object') {
